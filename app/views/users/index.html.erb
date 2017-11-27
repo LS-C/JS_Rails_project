@@ -3,7 +3,7 @@
 
 <% if @users %>
     <% @users.each do |user| %>
-        <%= user.full_name %> <br>
+        <%= render 'user', :user => user %> <br>
     <%end%>
     <%else%>
         <p>There are no users at this time.</p>
