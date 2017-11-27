@@ -1,0 +1,33 @@
+
+
+
+<% if @users %>
+    <% @users.each do |user| %>
+        <%= user.first_name%> <%= user.last_name%> <br>
+    <%end%>
+    <%else%>
+        <p>There are no users at this time.</p>
+<%end%>
+
+
+<button id="new-item">click to register your name</button>
+
+<div id="form"></div>
+
+
+
+
+<script type="text/javascript">
+
+$(function() {
+
+    $('#new-item').click(function() {
+        $('#form').html("<%= escape_javascript(render :partial => 'form') %>")
+    })
+
+})
+
+
+
+</script>
+
