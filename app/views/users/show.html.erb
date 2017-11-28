@@ -2,8 +2,8 @@
 
 <%= @user.email %>
 
-<div id="user-listed-items">
     <% if @user.items %>
+<div id="user-listed-items">
         <% @user.items.each do |item| %>
     <p id="item-name"><%= item.name %></p>
     <div id="product-<%=item.id%>-info"></div>

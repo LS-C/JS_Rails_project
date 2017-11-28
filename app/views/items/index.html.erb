@@ -1,13 +1,15 @@
 
 <% @items.each do |item| %>
-    <div id="item-container">
-        <div class="item-list" data-id=<%=item.id%>></div>
-        <%= item.name %><br>
-        <%= item.description %><br>
-        <%= item.price %> <br>
-        </div>
+    <div>
+            <div id="item-container">
+                <div class="item-list" data-id=<%=item.id%>>
+                    <%= item.name %><br>
+                    <%= item.description %><br>
+                    <%= item.price %> <br>
+                </div>
+            </div>
+        <div class="add-button" data-id=<%=item.id%>></div>
     </div>
-        <div class="add-button"></div>
 <% end %>
 
 <%= @currentUserId %>
@@ -16,18 +18,26 @@
 <div id="shopping-bag"></div>
 
 <script type="text/javascript">
-    $('#shop-button').on('click', startShopping)
+    $('#shop-button').click(startShopping)
 
 function startShopping() {
-    $('.add-button').append('<button class="add-item-button" data-id=id>Add Item To Bag</button><button class="email-seller-button" data-id=id>Email Seller</button>')
+    $('.add-button').append(`<button class="add-item-button">Add Item To Bag</button><button class="email-seller-button">Email Seller</button>`)
         if (!$('.add-button').is(':empty')) {
             $('#shop-button').off('click', startShopping)
+            $('.add-item-button').click(addItem)
         }
         $('#shopping-bag').html("<%= escape_javascript(render :partial => 'invoices/form') %>")
 }
 
 
+function addItem() {
+    let id = $(this).parent().attr('data-id');
+}
+
+
+
 </script>
+
 
 
 
