@@ -1,0 +1,14 @@
+<%= form_for @item do |f| %>
+    <%= f.text_field :name %>
+    <%= f.text_field :category %>
+    <%= f.text_field :price %>
+    <%= f.text_field :description %>
+    <%= f.text_field :inventory %>
+    <%= f.text_field :seller_id %>
+    <%= hidden_field_tag :seller_id, @user.id %>
+
+    <%= f.submit %>
+<%end%>
+
+<%=@user.id %>
+
