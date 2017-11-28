@@ -1,3 +1,17 @@
+
 <% @items.each do |item| %>
-    <%= item.name %>
+    <div id="item-container">
+        <%= item.name %><br>
+        <%= item.description %><br>
+        <%= item.price %> <br>
+    </div>
 <% end %>
+
+
+<button id="shop-button">Start shopping</button>
+
+<script type="text/javascript">
+    $('#shop-button').click(function() {
+        console.log('SHOPPING')
+    })
+</script>
