@@ -1,15 +1,17 @@
 
 
-<%= form_for(@item) do |f| %>
+<%= form_for @item do |f| %>
     Name: <%= f.text_field :name %><br>
     Category: <%= f.text_field :category %><br>
     Price: $<%= f.text_field :price %><br>
     Item Description: <%= f.text_field :description %><br>
     Number of Items: <%= f.text_field :inventory %><br>
-    <%= hidden_field_tag :seller_id, @user.id %><br>
+    <%= f.hidden_field :seller_id, value: @user.id,  class: 'user-id'%><br>
 
     <%= f.submit %>
 <%end%>
+
+<%= @user.id %>
 
 
 
@@ -17,10 +19,10 @@
     $('form').submit(function(e) {
         e.preventDefault()
         var values = $(this).serialize();
-        console.log(values)
-        posting = $.post('/items', values)
+        const id = $('.user-id').val()
+        posting = $.post('/users/'+id+'/items', values)
         posting.done(function(values) {
-            console.log('success')
+            console.log(values)
         })
     })
 </script>
