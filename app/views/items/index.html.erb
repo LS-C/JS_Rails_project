@@ -1,17 +1,27 @@
 
 <% @items.each do |item| %>
     <div id="item-container">
+        <div class="item-list" data-id=<%=item.id%>></div>
         <%= item.name %><br>
         <%= item.description %><br>
         <%= item.price %> <br>
+        </div>
     </div>
+        <div class="add-button"></div>
 <% end %>
 
 
 <button id="shop-button">Start shopping</button>
 
 <script type="text/javascript">
-    $('#shop-button').click(function() {
-        console.log('SHOPPING')
-    })
+    $('#shop-button').on('click', addButton)
+
+function addButton() {
+    $('.add-button').append('<button class="add-item-button" data-id=id>hi</button>')
+        if (!$('.add-button').is(':empty')) {
+            $('#shop-button').off('click', addButton)
+        }
+}
 </script>
+
+
