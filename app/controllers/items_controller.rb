@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
 
     def index
         @items = Item.all
+        @currentUserId = current_user.id
     end
 
     def show
