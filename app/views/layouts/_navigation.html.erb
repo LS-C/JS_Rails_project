@@ -1,0 +1,19 @@
+
+
+  <ul class="nav pull-right">
+          <li class="">
+            <%= link_to root_path do %>
+            <i class="icon-home"></i> Home
+            <% end %>
+          </li>
+          <li class="">
+            <%= link_to current_user do %>
+            <i class="icon-book"></i> Portfolio
+            <% end %>
+          </li>
+          <li class="">
+            <%= link_to(destroy_user_session_path, :method=>'delete') do %>
+            <i class="icon-signout"></i> Logout
+            <% end %>
+          </li>
+    </ul>

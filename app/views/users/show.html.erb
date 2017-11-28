@@ -25,6 +25,8 @@
 <br>
 <div id="add-item-form" class='add-item-form'></div>
 
+<%= link_to 'Shop', items_path %>
+
 <script type="text/javascript">
     $('#add-item-button').click(function() {
          $('#add-item-form').html("<%= escape_javascript(render :partial => 'items/form') %>")
