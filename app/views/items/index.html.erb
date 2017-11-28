@@ -11,13 +11,15 @@
 <% end %>
 
 
+
+
 <button id="shop-button">Start shopping</button>
 
 <script type="text/javascript">
     $('#shop-button').on('click', addButton)
 
 function addButton() {
-    $('.add-button').append('<button class="add-item-button" data-id=id>hi</button>')
+    $('.add-button').append('<button class="add-item-button" data-id=id>Add Item To Bag</button><button class="email-seller-button" data-id=id>Email Seller</button>')
         if (!$('.add-button').is(':empty')) {
             $('#shop-button').off('click', addButton)
         }
