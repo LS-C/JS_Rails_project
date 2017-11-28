@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-    belongs_to :items
+    has_many :items
     belongs_to :seller, :class_name => "User"
 end
 

@@ -12,7 +12,7 @@
     </div>
 <% end %>
 
-<%= @currentUserId %>
+<%= @current_user_id %>
 
 <button id="shop-button">Start shopping</button>
 <div id="shopping-bag"></div>
@@ -24,14 +24,18 @@ function startShopping() {
     $('.add-button').append(`<button class="add-item-button">Add Item To Bag</button><button class="email-seller-button">Email Seller</button>`)
         if (!$('.add-button').is(':empty')) {
             $('#shop-button').off('click', startShopping)
-            $('.add-item-button').click(addItem)
+            $('.add-item-button').click(addItemToShoppingCart)
         }
         $('#shopping-bag').html("<%= escape_javascript(render :partial => 'invoices/form') %>")
 }
 
 
-function addItem() {
+function addItemToShoppingCart() {
     let id = $(this).parent().attr('data-id');
+    posting = $.getJSON('/items/'+id, function(data) {
+        const item = data
+        $('#shopping-bag-items').append('<p>'+item["name"]+'</p>')
+    })
 }
 
 
