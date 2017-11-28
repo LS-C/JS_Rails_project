@@ -14,16 +14,23 @@
 
 
 <button id="shop-button">Start shopping</button>
+<div id="shopping-bag"></div>
 
 <script type="text/javascript">
-    $('#shop-button').on('click', addButton)
+    $('#shop-button').on('click', startShopping)
 
-function addButton() {
+function startShopping() {
     $('.add-button').append('<button class="add-item-button" data-id=id>Add Item To Bag</button><button class="email-seller-button" data-id=id>Email Seller</button>')
         if (!$('.add-button').is(':empty')) {
-            $('#shop-button').off('click', addButton)
+            $('#shop-button').off('click', startShopping)
         }
+        $('#shopping-bag').html("<%= escape_javascript(render :partial => 'invoices/form') %>")
 }
+
+
 </script>
+
+
+
 
 
