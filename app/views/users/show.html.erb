@@ -3,6 +3,13 @@
 <%= @user.email %>
 
 <div id="user-listed-items">
+    <% if @user.items %>
+        <% @user.items.each do |item| %>
+    <p id="item-name"><%= item.name %></p>
+    <div id="product-<%=item.id%>-info"></div>
+    <button class="more-product-info" data-id=<%=item.id%>>More Info</button>
+        <%end%>
+    <%end%>
 
 </div>
 
@@ -21,5 +28,13 @@
 <script type="text/javascript">
     $('#add-item-button').click(function() {
          $('#add-item-form').html("<%= escape_javascript(render :partial => 'items/form') %>")
+    })
+
+    $('.more-product-info').click(function() {
+        const id = $(this).attr("data-id")
+        posting = $.getJSON('/items/'+id, function(data) {
+            const item = data
+            $(`#product-${id}-info`).append(`<p>${item["description"]}</p><p>${item["price"]}</p>`)
+        })
     })
 </script>

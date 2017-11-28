@@ -1,0 +1,10 @@
+
+<div id="user-listed-items">
+    <% if @user.items %>
+        <% @user.items.each do |item| %>
+    <p id="item-name"><%= item.name %></p>
+    <div id="product-<%=item.id%>-info"></div>
+    <button class="more-product-info" data-id=<%=item.id%>>More Info</button>
+        <%end%>
+    <%end%>
+</div>
