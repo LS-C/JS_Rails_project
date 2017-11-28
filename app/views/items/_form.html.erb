@@ -22,7 +22,8 @@
         const id = $('.user-id').val()
         posting = $.post('/users/'+id+'/items', values)
         posting.done(function(values) {
-            console.log(values)
+            const item = values["name"]
+            $('#user-listed-items').append(`<p>${item}</p>`)
         })
     })
 </script>

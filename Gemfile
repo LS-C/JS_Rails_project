@@ -34,6 +34,8 @@ gem 'active_model_serializers', '~> 0.10.7'
 
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 
+gem 'devise', '~> 4.3'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
