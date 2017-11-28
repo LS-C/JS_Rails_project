@@ -1,18 +1,16 @@
 
 
 <%= form_for(@item) do |f| %>
-    Name: <%= f.text_field :name %>
-    <%= f.text_field :category %>
-    <%= f.text_field :price %>
-    <%= f.text_field :description %>
-    <%= f.text_field :inventory %>
-    <%= f.text_field :seller_id %>
-    <%= hidden_field_tag :seller_id, @user.id %>
+    Name: <%= f.text_field :name %><br>
+    Category: <%= f.text_field :category %><br>
+    Price: $<%= f.text_field :price %><br>
+    Item Description: <%= f.text_field :description %><br>
+    Number of Items: <%= f.text_field :inventory %><br>
+    <%= hidden_field_tag :seller_id, @user.id %><br>
 
     <%= f.submit %>
 <%end%>
 
-<%=@user.id %>
 
 
 <script type="text/javascript">
@@ -22,7 +20,7 @@
         console.log(values)
         posting = $.post('/items', values)
         posting.done(function(values) {
-            console.log(values)
+            console.log('success')
         })
     })
 </script>
