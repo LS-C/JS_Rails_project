@@ -3,3 +3,14 @@
 <%= @user.full_name %>
 
 
+<button id="add-item-button">Add Items</button>
+
+
+
+<div id="add-item-form"></div>
+
+<script type="text/javascript">
+    $('#add-item-button').click(function() {
+         $('#add-item-form').html("<%= escape_javascript(render :partial => 'items/form') %>")
+    })
+</script>
